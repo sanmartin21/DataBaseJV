@@ -17,23 +17,18 @@ public class Json {
 		
 		BufferedReader bufRead = new BufferedReader(new FileReader(arquivo));
 		
-		String line;
+		String readLine;
 		
 		StringBuilder StringBuilder = new StringBuilder();
 		
-		while ((line = bufRead.readLine()) != null) {
-			StringBuilder.append(line);
+		while ((readLine = bufRead.readLine()) != null) {
+			StringBuilder.append(readLine);
 		}
 		
 		JsonObject jsonObject = new Gson().fromJson(StringBuilder.toString(), JsonObject.class);
-		return jsonObject;
 		
-	
-	public DataBase populaObjeto() throws IOException {
+	return jsonObject;
 		
-		JsonObject gsonObj = this.generateGson();
-	}
-
 		
 		
 	}
