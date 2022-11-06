@@ -1,0 +1,1 @@
+{"nome":"Database","url":"myComputer\/jvsanmartin\/downloads","porta":2131,"usuario":"jvsanmartin","senha":1213114,"sgbd":"MySql","tabela":[{"nome":"alunos","coluna":[{"nome":"teste","tipo":"int","isNotNull":true,"isAutoIncrement":true,"isPrimaryKey":true},{"nome":"teste2","tipo":"String","isNotNull":false,"isAutoIncrement":false,"isPrimaryKey":false}]}]}
