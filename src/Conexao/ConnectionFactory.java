@@ -17,14 +17,30 @@ public class ConnectionFactory {
 	private static final String DriverMySQL = "com.mysql.cj.jdbc.Driver";
 	
 
-	public static void main(String[] args) throws SQLException {
+	/*
+	 * Conexão com o Banco de Dados
+	 */
+	
+	public static Connection createConnectionToMySQL() throws Exception{
+		//faz com que a classe seja carregada pela JVM
+		Connection conexao = null;
 		
+		Class.forName(DriverMySQL);
+		
+		//cria a conexão com o banco de dados
+		conexao = DriverManager.getConnection(database_URL, username, password);
+    
+		return conexao;
+	}
+	
+	public static void main(String[] args) throws Exception {
 		Connection conexao = null;
 		
 		try {
-			Class.forName(DriverMySQL);
-			conexao = DriverManager.getConnection(database_URL, username, password);
-	    }
+			//recupera uma conexão com o banco de dados
+			conexao = createConnectionToMySQL();
+			System.out.println("Conexão obtida com sucesso!");
+		}
 		catch (ClassNotFoundException ex) {
 			System.out.println("Driver do banco de Dados não localizado.");
 		} 
