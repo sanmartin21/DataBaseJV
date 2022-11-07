@@ -4,30 +4,29 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.mysql.cj.xdevapi.Statement;
 
 
-
-public class Conexao {
+public class ConnectionFactory {
+	
+	private static final String username = "root";
+	
+	private static final String password = "";
+	
+	private static final String database_URL = "jdbc:mysql://localhost";
+	
+	private static final String DriverMySQL = "com.mysql.cj.jdbc.Driver";
+	
 
 	public static void main(String[] args) throws SQLException {
+		
 		Connection conexao = null;
-
-		String URL = "jdbc:mysql://localhost";
-		String user = "root";
-		String password = "";
-		String criaTabela = " Create table DataBase (nome varchar(30));";
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexao = DriverManager.getConnection(URL, user, password);
-			Statement stnt = (Statement) conexao.createStatement();
-			stnt.execute(criaTabela);
-			((Connection) stnt).close();
+			Class.forName(DriverMySQL);
+			conexao = DriverManager.getConnection(database_URL, username, password);
 	    }
 		catch (ClassNotFoundException ex) {
 			System.out.println("Driver do banco de Dados não localizado.");
-			ex.printStackTrace();
 		} 
 
 		catch (SQLException ex) {
