@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class DataBase {
 	
 	  public String nome;
-	  public ArrayList<Tabela> tabelas;
+	  public ArrayList<Tabela> tabela;
 	  
 	  
 	public String getNome() {
@@ -15,19 +15,19 @@ public class DataBase {
 		this.nome = nome;
 	}
 	
-	public ArrayList<Tabela> getTabelas() {
-		return tabelas;
+	public ArrayList<Tabela> getTabela() {
+		return tabela;
 	}
-	public void setTabelas(ArrayList<Tabela> tabelas) {
-		this.tabelas = tabelas;
+	public void setTabela(ArrayList<Tabela> tabela) {
+		this.tabela = tabela;
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("DataBase [nome=");
 		builder.append(nome);
-		builder.append(", tabelas=");
-		builder.append(tabelas);
+		builder.append(", tabela=");
+		builder.append(tabela);
 		builder.append("]");
 		return builder.toString();
 	}

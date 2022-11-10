@@ -5,7 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import EstruturaDataBase.Coluna;
+import EstruturaDataBase.Conexao;
 import EstruturaDataBase.DataBase;
+import EstruturaDataBase.Tabela;
+
 import com.google.gson.*;
 
 
@@ -13,9 +19,8 @@ public class Json {
 	
 	private JsonObject generateGson() throws IOException{
 		
-		String arquivo = "C:\\Users\\jvsan\\OneDrive\\Área de Trabalho\\DatabaseJV\\jsonTeste";
 		
-		BufferedReader bufRead = new BufferedReader(new FileReader(arquivo));
+		BufferedReader bufRead = new BufferedReader(new FileReader("C:\\\\Users\\\\jvsan\\\\OneDrive\\\\Área de Trabalho\\\\DatabaseJV\\\\jsonTeste"));
 		
 		String readLine;
 		
@@ -27,9 +32,69 @@ public class Json {
 		
 		JsonObject jsonObject = new Gson().fromJson(StringBuilder.toString(), JsonObject.class);
 		
-	return jsonObject;
-		
+		return jsonObject;
+	}
 	
+	
+	public DataBase mapeamento() throws IOException{
+		
+		
+		JsonObject jsonObject = this.generateGson();
+		
+		
+		// Populando DataBase
+		DataBase dataBase = new DataBase();
+		
+		dataBase.setNome(jsonObject.get("nome").getAsString());
+		
+		// Populando Conexão do DataBase
+		
+		Conexao conexao = new Conexao();
+		
+		conexao.setUrl(jsonObject.get("url").getAsString());
+		conexao.setPorta(jsonObject.get("porta").getAsInt());
+		conexao.setUsuario(jsonObject.get("usuario").getAsString());
+		conexao.setSenha(jsonObject.get("senha").getAsString());
+		conexao.setSgbd(jsonObject.get("sgbd").getAsString());
+		
+
+		// Populando Array de Tabelas
+		
+		
+		JsonArray arrayTabelas = jsonObject.getAsJsonArray("tabela");
+		ArrayList<Tabela> listTabela = new ArrayList<Tabela>();
+		
+		for(int i = 0; i < arrayTabelas.size(); i++) {
+				Tabela tabela = new Tabela();
+				tabela.setNome(arrayTabelas.get(i).getAsJsonObject().get("nome").getAsString());
+				JsonArray arrayColunas = arrayTabelas.get(i).getAsJsonObject().getAsJsonArray("coluna");
+				
+				// Populando Array de Colunas
+				
+				
+				ArrayList<Coluna> listColuna = new ArrayList<Coluna>();
+				
+				int j;
+				
+				for(j = 0; j > arrayColunas.size(); j++) {
+					Coluna coluna = new Coluna();
+					
+					coluna.setNome(arrayColunas.get(j).getAsJsonObject().get("nome").getAsString());
+					coluna.setTipo(arrayColunas.get(j).getAsJsonObject().get("tipo").getAsString());
+					coluna.setNotNull(arrayColunas.get(j).getAsJsonObject().get("isNotNull").getAsBoolean());
+					coluna.setAutoIncrement(arrayColunas.get(j).getAsJsonObject().get("isAutoIncrement").getAsBoolean());
+					coluna.setPrimaryKey(arrayColunas.get(j).getAsJsonObject().get("isPrimaryKey").getAsBoolean());
+					
+					listColuna.add(coluna);
+				}
+				tabela.setColuna(listColuna);
+				listTabela.add(tabela);
+		}
+		
+		dataBase.setTabela(listTabela);
+		
+		return dataBase;
+		
 	}
 	
 }

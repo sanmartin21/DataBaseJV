@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Tabela {
 	
 	 public String nome;
-	 public ArrayList<Coluna> colunas;
+	 public ArrayList<Coluna> coluna;
 	 
 	 
 	public String getNome() {
@@ -14,19 +14,19 @@ public class Tabela {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public ArrayList<Coluna> getColunas() {
-		return colunas;
+	public ArrayList<Coluna> getColuna() {
+		return coluna;
 	}
-	public void setColunas(ArrayList<Coluna> colunas) {
-		this.colunas = colunas;
+	public void setColuna(ArrayList<Coluna> coluna) {
+		this.coluna = coluna;
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Tabela [nome=");
 		builder.append(nome);
-		builder.append(", colunas=");
-		builder.append(colunas);
+		builder.append(", coluna=");
+		builder.append(coluna);
 		builder.append("]");
 		return builder.toString();
 	}
