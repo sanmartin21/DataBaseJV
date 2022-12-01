@@ -89,9 +89,9 @@ public class Json {
 				}
 				tabela.setColuna(listColuna);
 				listTabela.add(tabela);
-		}
+			}
 		
-		dataBase.setTabela(listTabela);
+			dataBase.setTabela(listTabela);
 		
 		return dataBase;
 		

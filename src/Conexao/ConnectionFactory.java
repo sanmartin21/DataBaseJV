@@ -12,7 +12,7 @@ public class ConnectionFactory {
 	
 	private static final String password = "";
 	
-	private static final String database_URL = "jdbc:mysql://localhost";
+	private static final String database_URL = "jdbc:mysql://localhost/database_jv";
 	
 	private static final String DriverMySQL = "com.mysql.cj.jdbc.Driver";
 	
