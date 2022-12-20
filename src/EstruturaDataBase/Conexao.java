@@ -1,5 +1,12 @@
 package EstruturaDataBase;
 
+/**
+ * Classe que irá gerar a estrutura da conexao e de seus atributos
+ * 
+ * @author jvsanmartin@yahoo.com.br
+ * 
+ **/
+
 public class Conexao{
 
 	protected String nome;

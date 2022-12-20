@@ -3,6 +3,14 @@ package EstruturaDataBase;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Classe que irá gerar a estrutura das Tabelas e de seus atributos
+ * 
+ * @author jvsanmartin@yahoo.com.br
+ * 
+ **/
+
 public class Tabela {
 	
 	 public String nomeTabela;
@@ -17,6 +25,14 @@ public class Tabela {
 	 public Tabela() {
 		 
 	 }
+	 
+	 
+	 /**
+		 * Método que transformará a classe em uma String SQL
+		 * 
+		 * @author jvsanmartin@yahoo.com.br
+		 * 
+     **/
 	 
 	 public String toQuery(String nome) {
 		 String stmt = "CREATE TABLE " + nome + "." + nomeTabela;

@@ -14,6 +14,12 @@ import EstruturaDataBase.Tabela;
 
 import com.google.gson.*;
 
+/**
+ * Classe que irá fazer o mapeamento do Json e tornar o JSON em um objeto
+ * 
+ * @author jvsanmartin@yahoo.com.br
+ * 
+ **/
 
 public class Json {
 	
@@ -36,13 +42,26 @@ public class Json {
 	}
 	
 	
+	/**
+	 * Método que irá mapear a Classe Conexão
+	 * 
+	 * @author jvsanmartin@yahoo.com.br
+	 * 
+	 **/
+	
+	
 	public Conexao mapeamento() throws IOException{
 		
 		
 		JsonObject jsonObject = this.generateGson();
 		
 		
-		// Populando Conexão do DataBase
+		/**
+		 * Instanciamento e mapeamento da Conexão
+		 * 
+		 * @author jvsanmartin@yahoo.com.br
+		 * 
+		 **/
 		
 		Conexao conexao = new Conexao();
 		
@@ -57,17 +76,36 @@ public class Json {
 		return conexao;
 	}
 	
+	
+	/**
+	 * Método que irá mapear a Classe DataBase
+	 * 
+	 * @author jvsanmartin@yahoo.com.br
+	 * 
+	 **/
+	
 	public DataBase mapeamentoDatabase() throws IOException{
 		
 		JsonObject jsonObject = this.generateGson();
 		
 		
-		// Populando DataBase
+		/**
+		 * Instanciamento e mapeamento da DataBase
+		 * 
+		 * @author jvsanmartin@yahoo.com.br
+		 * 
+		 **/ 
+		
 		DataBase dataBase = new DataBase();
 		
 		dataBase.setNome(jsonObject.get("nome").getAsString());
 		
-		// Populando Array de Tabelas
+		/**
+		 * Populando Array de Tabelas
+		 * 
+		 * @author jvsanmartin@yahoo.com.br
+		 * 
+		 **/
 		
 		
 		JsonArray arrayTabelas = jsonObject.getAsJsonArray("tabela");
@@ -78,7 +116,12 @@ public class Json {
 				tabela.setNomeTabela(arrayTabelas.get(i).getAsJsonObject().get("nomeTabela").getAsString());
 				JsonArray arrayColunas = arrayTabelas.get(i).getAsJsonObject().getAsJsonArray("coluna");
 				
-				// Populando Array de Colunas
+				/**
+				 * Populando Array de Colunas
+				 * 
+				 * @author jvsanmartin@yahoo.com.br
+				 * 
+				 **/
 				
 				ArrayList<Coluna> listColuna = new ArrayList<Coluna>();				
 				

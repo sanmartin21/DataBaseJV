@@ -1,4 +1,11 @@
 package EstruturaDataBase;
+/**
+ * Classe que irá gerar a estrutura das colunas e de seus atributos
+ * 
+ * @author jvsanmartin@yahoo.com.br
+ * 
+ **/
+
 
 public class Coluna {
 	 public String nome;
@@ -7,6 +14,13 @@ public class Coluna {
 	 private boolean isAutoIncrement;
 	 private boolean isPrimaryKey;
 	 
+	 
+	 /**
+	  * Construtor da Classe Coluna
+	  * 
+	  * @author jvsanmartin@yahoo.com.br
+	  * 
+	  **/
 	 
 	public Coluna(String name, String tipo) {
 		setNome(nome);

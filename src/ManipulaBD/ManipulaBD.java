@@ -3,8 +3,15 @@ package ManipulaBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import Conexao.ConnectionFactory;
+import Conexao.MySQL;
 import EstruturaDataBase.Coluna;
+
+/**
+ * Classe que irá fazer a conexão principal e salvará os dados no banco de dados
+ * 
+ * @author jvsanmartin@yahoo.com.br
+ * 
+ **/
 
 public class ManipulaBD {
 	
@@ -12,14 +19,10 @@ public class ManipulaBD {
 	public void save(String sql) {
 		
 		Connection conexao = null;
-	
 		PreparedStatement pstm = null;
 	
 		try {
-			//Cria uma conexão com o banco de dados
-			conexao = ConnectionFactory.createConnectionToMySQL();
-		
-			//cria um PrepareStatement, para executar a query
+			conexao = MySQL.createConnectionToMySQL();
 		
 			pstm = (PreparedStatement) conexao.prepareStatement(sql);
 
@@ -29,7 +32,6 @@ public class ManipulaBD {
 			e.printStackTrace();
 		}
 		finally {
-			//fechar conexoes
 			try {
 				if(pstm!= null) {
 					pstm.close();

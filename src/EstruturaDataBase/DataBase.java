@@ -3,6 +3,14 @@ package EstruturaDataBase;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Classe que irá gerar a estrutura principal do DataBase e de seus atributos
+ * 
+ * @author jvsanmartin@yahoo.com.br
+ * 
+ **/
+
 public class DataBase {
 	
 	  private String nome;
@@ -17,6 +25,13 @@ public class DataBase {
 	public DataBase() {
 	}	
 
+	/**
+	 * Método que transformará a classe em uma String SQL
+	 * 
+	 * @author jvsanmartin@yahoo.com.br
+	 * 
+	 **/
+	
 	public String toQuery() {
 		String query = "";
 		for(Tabela tabela : tabela) {
