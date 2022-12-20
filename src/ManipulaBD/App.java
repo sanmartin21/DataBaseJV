@@ -1,20 +1,21 @@
 package ManipulaBD;
 
-import EstruturaDataBase.Coluna;
+import java.io.IOException;
+
+import EstruturaDataBase.DataBase;
+import PopulaJSON.Json;
 
 public class App {
 
-	public static void main(String[] args) {
-
-		ManipulaBD manipulaBD =  new ManipulaBD();
-
-		Coluna coluna = new Coluna();
+	public static void main(String[] args) throws IOException {
 		
-		coluna.setNome("DataBaseJV");
-		coluna.setTipo("int");
+		Json json = new Json();
 		
-		manipulaBD.save(coluna);
+		DataBase dataBase = json.mapeamentoDatabase(); 
 		
+		ManipulaBD bd = new ManipulaBD();
+		
+		bd.save(dataBase.toQuery());
 	}
 
 }

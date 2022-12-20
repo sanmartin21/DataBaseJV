@@ -1,0 +1,31 @@
+{
+    "nome": "databaseJV",
+    "tabela": [
+        {
+            "nomeTabela": "Table1",
+            "coluna": [
+                {
+                    "nome": "coluna11",
+                    "tipo": "varchar(255)"
+                },
+                {
+                    "nome": "coluna12",
+                    "tipo": "int"
+                }
+            ]
+        },
+        {
+            "nomeTabela": "Table2",
+            "coluna": [
+                {
+                    "nome": "coluna21",
+                    "tipo": "varchar(255)"
+                },
+                {
+                    "nome": "coluna22",
+                    "tipo": "int"
+                }
+            ]
+        }
+    ]
+}

@@ -1,12 +1,13 @@
 package EstruturaDataBase;
 
-public class Conexao {
+public class Conexao{
 
-	private String url;
-	private int porta;
-	private String usuario;
-	private String senha;
-	private String sgbd;
+	protected String nome;
+	protected String url;
+	protected int porta;
+	protected String usuario;
+	protected String senha;
+	protected int sgbd;
 	
 	
 	public String getUrl() {
@@ -33,18 +34,25 @@ public class Conexao {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getSgbd() {
+	public int getSgbd() {
 		return sgbd;
 	}
-	public void setSgbd(String sgbd) {
+	public void setSgbd(int sgbd) {
 		this.sgbd = sgbd;
 	}
 	
-	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Conexao [url=");
+		builder.append("Conexao [nome=");
+		builder.append(nome);
+		builder.append(", url=");
 		builder.append(url);
 		builder.append(", porta=");
 		builder.append(porta);
@@ -57,5 +65,6 @@ public class Conexao {
 		builder.append("]");
 		return builder.toString();
 	}
+	
 		
 }

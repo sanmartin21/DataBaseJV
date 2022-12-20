@@ -1,45 +1,24 @@
 {
-    "nome": "Database",
-    "url": "myComputer\/jvsanmartin\/downloads",
-    "porta": 2131,
-    "usuario": "jvsanmartin",
-    "senha": 1213114,
-    "sgbd": "MySql",
+    "nome": "testeJOAOVITOR",
+    "url": "jdbc:mysql://localhost/databasejv",
+    "porta": 3306,
+    "usuario": "root",
+    "senha": "",
+    "sgbd": 1,
     "tabela": [
         {
-            "nome": "alunos",
+            "nomeTabela": "databasejv14",
             "coluna": [
                 {
-                    "nome": "teste",
-                    "tipo": "int",
+                    "nome": "tabela1zin",
+                    "tipo": "varchar(20)",
                     "isNotNull": true,
                     "isAutoIncrement": true,
                     "isPrimaryKey": true
                 },
                 {
-                    "nome": "teste2",
-                    "tipo": "String",
-                    "isNotNull": false,
-                    "isAutoIncrement": false,
-                    "isPrimaryKey": false
-                }
-            ]
-        }
-    ],
-    "tabela": [
-        {
-            "nome": "alunos",
-            "coluna": [
-                {
-                    "nome": "teste",
-                    "tipo": "int",
-                    "isNotNull": true,
-                    "isAutoIncrement": true,
-                    "isPrimaryKey": true
-                },
-                {
-                    "nome": "teste2",
-                    "tipo": "String",
+                    "nome": "tabela1",
+                    "tipo": "varchar(20)",
                     "isNotNull": false,
                     "isAutoIncrement": false,
                     "isPrimaryKey": false

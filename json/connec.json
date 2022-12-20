@@ -1,0 +1,7 @@
+{
+    "nome": "databaseJV",
+    "url": "jdbc:mysql://localhost/databaseJV",
+    "usuario": "root",
+    "senha": "",
+    "sgbd": "1"
+}

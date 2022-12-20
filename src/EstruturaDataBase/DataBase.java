@@ -1,13 +1,30 @@
 package EstruturaDataBase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataBase {
 	
-	  public String nome;
-	  public ArrayList<Tabela> tabela;
+	  private String nome;
+	  public ArrayList<Tabela> tabela = new ArrayList<Tabela>();
 	  
 	  
+	public DataBase(String nome, List<Tabela> tabelas) {
+		setNome(nome);
+		setTabela(tabela);
+	}
+	
+	public DataBase() {
+	}	
+
+	public String toQuery() {
+		String query = "";
+		for(Tabela tabela : tabela) {
+			query += " " + tabela.toQuery(nome) + ";";
+		}
+		return query;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -20,6 +37,10 @@ public class DataBase {
 	}
 	public void setTabela(ArrayList<Tabela> tabela) {
 		this.tabela = tabela;
+	}
+	
+	public void addTabela(Tabela tabela) {
+		this.tabela.add(tabela);
 	}
 	@Override
 	public String toString() {

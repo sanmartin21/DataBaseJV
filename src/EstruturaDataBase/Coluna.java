@@ -8,6 +8,14 @@ public class Coluna {
 	 private boolean isPrimaryKey;
 	 
 	 
+	public Coluna(String name, String tipo) {
+		setNome(nome);
+		setTipo(tipo);
+	}
+	 
+	public Coluna() {
+		
+	}
 	public String getNome() {
 		return nome;
 	}
